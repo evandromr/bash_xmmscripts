@@ -25,7 +25,7 @@ echo "DONE"
 
 cp $HOME/Work/XMM/XMM_PPS/$OBSID/*REGION* ./regions.reg
 echo "Select the regions src.reg, bkg.reg and src_evt.reg"
-ds9 PN_image_clean.ds -regions load regions.reg -cmap Heat -log -smooth yes /
+ds9 PN_image_clean.ds -regions load regions.reg -cmap Heat -log -smooth yes \
 -zoom 4
 
 # ------------ Spectrum PN ---------------
@@ -41,12 +41,12 @@ cp ../pn/src.reg ./
 cp ../pn/bkg.reg ./
 cp ../pn/src_evt.reg ./
 echo "Cleaning MOS1 event files..."
-source mos1clearevts.sh > clear.log
+source clearmos1evts.sh > clear.log
 echo "DONE"
 
 cp $HOME/Work/XMM/XMM_PPS/$OBSID/*REGION* ./regions.reg
 echo "Select the regions src.reg, bkg.reg and src_evt.reg"
-ds9 MOS1_image_clean.ds -regions load regions.reg -cmap Heat -log -smooth yes /
+ds9 MOS1_image_clean.ds -regions load regions.reg -cmap Heat -log -smooth yes \
 -zoom 4 -regions load src.reg -regions load bkg.reg -regions load src_evt.reg
 
 # ---------- Spectrum MOS1 -----------------
@@ -61,12 +61,12 @@ cp ../mos1/src.reg ./
 cp ../mos1/src_evt.reg ./
 cp ../mos1/bkg.reg ./
 echo "Cleaning MOS2 events file"
-source mos2clearevts.sh > clear.log
+source clearmos2evts.sh > clear.log
 echo "DONE"
 
 cp $HOME/Work/XMM/XMM_PPS/$OBSID/*REGION* ./regions.reg
 echo "Select the regions src.reg, bkg.reg and src_evt.reg"
-ds9 MOS2_image_clean.ds -regions load regions.reg -cmap Heat -log -smooth yes /
+ds9 MOS2_image_clean.ds -regions load regions.reg -cmap Heat -log -smooth yes \
 -zoom 4 -regions load src.reg -regions load bkg.reg -regions load src_evt.reg
 
 # ----------- Spectrum MOS2 ---------------

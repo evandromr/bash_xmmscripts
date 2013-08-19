@@ -67,4 +67,4 @@ arfgen --arfset=$mos2arf --spectrumset=$mos2srcspc \
 # can be replaced by grppha tool from HEASOFT
 specgroup --spectrumset=$mos2srcspc --mincounts=25 --oversample=3 \
     --backgndset=$mos2bkgspc --rmfset=$mos2rmf --arfset=$mos2arf \
-    --groupedset=MOS2spec.pi
+    --groupedset=MOS2spec.pha
