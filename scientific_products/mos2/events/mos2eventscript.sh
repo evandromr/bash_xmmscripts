@@ -13,7 +13,7 @@ do
 done < src_evt.reg
 
 export srcregion
-export mos2table=mos1evts_barycen.ds
+export mos2table=mos2evts_barycen.ds
 
 export fsrcname="mos2evts_src_0310keV.ds"
 export fimgname="mos2evts_src_img_0310keV.ds"
