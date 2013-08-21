@@ -32,6 +32,13 @@ ds9 PN_image_clean.ds -regions load regions.reg -cmap Heat -log -smooth yes \
 echo "Starting PN spectrum extraction..."
 cd spec
 source pnspec.sh > spec.log
+cd ..
+echo "DONE"
+# ------------ Events PN -----------------
+echo "Starting PN event files extraction..."
+cd events
+source pneventscript.sh
+cd ..
 echo "DONE"
 
 #------------- Camera MOS1 ----------------
@@ -53,6 +60,14 @@ ds9 MOS1_image_clean.ds -regions load regions.reg -cmap Heat -log -smooth yes \
 cd spec
 echo "Extracting MOS1 spectrum..."
 source mos1spec.sh > spec.log
+cd ..
+echo "DONE"
+
+# ------------ Events MOS1 -----------------
+echo "Starting MOS1 event files extraction..."
+cd events
+source mos1eventscript.sh
+cd ..
 echo "DONE"
 
 # ---------- Camera MOS2 ------------------
@@ -73,10 +88,18 @@ ds9 MOS2_image_clean.ds -regions load regions.reg -cmap Heat -log -smooth yes \
 cd spec
 echo "Extracting MOS2 spectrum..."
 source mos2spec.sh > spec.log
+cd ..
 echo "DONE"
 
-cd ../../../
+# ------------ Events MOS2 -----------------
+echo "Starting MOS2 event files extraction..."
+cd events
+source mos2eventscript.sh
+cd ..
+echo "DONE"
 
+---------------------------------------------
+cd ../../../
 echo ""
 echo "Scientific products ready to analysis"
 echo ""
