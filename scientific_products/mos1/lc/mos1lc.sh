@@ -16,14 +16,14 @@ evselect --table=$mos1table --energycolumn='PI' \
     --withrateset=yes --rateset=$mos1srclc \
     --timebinsize=$thebin --maketimecolumn=yes --makeratecolumn=yes \
     --withimageset=yes --imageset=$mos1srcimg --xcolumn='X' --ycolumn='Y' \
-    --expression="#XMMEA_EP && (PI IN [$emin :$emax]) && PATTERN <=4 && FLAG==0 && ((X,Y) IN $srcregion)"
+    --expression="#XMMEA_EM && (PI IN [$emin :$emax]) && PATTERN <=12 && FLAG==0 && ((X,Y) IN $srcregion)"
 
 # Extract a lightcurve for the bkg region for single and double events
 evselect --table=$mos1table --energycolumn='PI' \
     --withrateset=yes --rateset=$mos1bkglc \
     --timebinsize=$thebin --maketimecolumn=yes --makeratecolumn=yes \
     --withimageset=yes --imageset=$mos1bkgimg --xcolumn='X' --ycolumn='Y' \
-    --expression="#XMMEA_EP && (PI IN [$emin :$emax]) && PATTERN <=4 && FLAG==0 && ((X,Y) IN $bkgregion)"
+    --expression="#XMMEA_EM && (PI IN [$emin :$emax]) && PATTERN <=12 && FLAG==0 && ((X,Y) IN $bkgregion)"
 
 # Visualize images for double-check region selection
 #ds9 $mos1srcimg $mos1bkgimg
