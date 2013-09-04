@@ -16,18 +16,17 @@ echo "End of data reduction"
 
 echo "Starting the generation of scientific products"
 
+#=========================================================
 #--------------- Camera PN ---------------
 cd ../scientific_products/pn
 
 echo "Cleaning PN events..."
 source clearpnevts.sh > clear.log
 echo "DONE"
-
 cp $HOME/Work/XMM/XMM_PPS/$OBSID/*REGION* ./regions.reg
 echo "Select the regions src.reg, bkg.reg and src_evt.reg"
 ds9 PN_image_clean.ds -regions load regions.reg -cmap Heat -log -smooth yes \
 -zoom 4
-
 # ------------ Spectrum PN ---------------
 echo "Starting PN spectrum extraction..."
 cd spec
@@ -40,9 +39,21 @@ cd events
 source pneventscript.sh
 cd ..
 echo "DONE"
+# ------------ Light Curves PN -----------
+echo "Starting PN light curve extraction (full time)"
+cd lc_timed
+source pnlcscript_timed.sh
+cd ..
+echo "DONE"
+# ----------- Timed Light Curves PN ------
+echo "Starting PN light curve extraction (timed)"
+cd lc_timed
+source pnlcscript_timed.sh
+cd ..
+echo "DONE"
 
-#------------- Camera MOS1 ----------------
-
+#=========================================================
+#------------- Camera MOS1 ---------------
 cd ../../mos1
 cp ../pn/src.reg ./
 cp ../pn/bkg.reg ./
@@ -50,26 +61,36 @@ cp ../pn/src_evt.reg ./
 echo "Cleaning MOS1 event files..."
 source clearmos1evts.sh > clear.log
 echo "DONE"
-
 cp $HOME/Work/XMM/XMM_PPS/$OBSID/*REGION* ./regions.reg
 echo "Select the regions src.reg, bkg.reg and src_evt.reg"
 ds9 MOS1_image_clean.ds -regions load regions.reg -cmap Heat -log -smooth yes \
 -zoom 4 -regions load src.reg -regions load bkg.reg -regions load src_evt.reg
-
 # ---------- Spectrum MOS1 -----------------
 cd spec
 echo "Extracting MOS1 spectrum..."
 source mos1spec.sh > spec.log
 cd ..
 echo "DONE"
-
 # ------------ Events MOS1 -----------------
 echo "Starting MOS1 event files extraction..."
 cd events
 source mos1eventscript.sh
 cd ..
 echo "DONE"
+# ------------ Light Curves MOS1 -----------
+echo "Starting MOS1 light curve extraction (full time)"
+cd lc_timed
+source mos1lcscript_timed.sh
+cd ..
+echo "DONE"
+# ----------- Timed Light Curves MOS1 ------
+echo "Starting MOS1 light curve extraction (timed)"
+cd lc_timed
+source mos1lcscript_timed.sh
+cd ..
+echo "DONE"
 
+#=========================================================
 # ---------- Camera MOS2 ------------------
 cd ../../mos2
 cp ../mos1/src.reg ./
@@ -78,23 +99,32 @@ cp ../mos1/bkg.reg ./
 echo "Cleaning MOS2 events file"
 source clearmos2evts.sh > clear.log
 echo "DONE"
-
 cp $HOME/Work/XMM/XMM_PPS/$OBSID/*REGION* ./regions.reg
 echo "Select the regions src.reg, bkg.reg and src_evt.reg"
 ds9 MOS2_image_clean.ds -regions load regions.reg -cmap Heat -log -smooth yes \
 -zoom 4 -regions load src.reg -regions load bkg.reg -regions load src_evt.reg
-
 # ----------- Spectrum MOS2 ---------------
 cd spec
 echo "Extracting MOS2 spectrum..."
 source mos2spec.sh > spec.log
 cd ..
 echo "DONE"
-
 # ------------ Events MOS2 -----------------
 echo "Starting MOS2 event files extraction..."
 cd events
 source mos2eventscript.sh
+cd ..
+echo "DONE"
+# ------------ Light Curves MOS2 -----------
+echo "Starting MOS2 light curve extraction (full time)"
+cd lc_timed
+source mos2lcscript_timed.sh
+cd ..
+echo "DONE"
+# ----------- Timed Light Curves MOS2 ------
+echo "Starting MOS2 light curve extraction (timed)"
+cd lc_timed
+source mos2lcscript_timed.sh
 cd ..
 echo "DONE"
 
