@@ -41,8 +41,8 @@ cd ..
 echo "DONE"
 # ------------ Light Curves PN -----------
 echo "Starting PN light curve extraction (full time)"
-cd lc_timed
-source pnlcscript_timed.sh
+cd lc
+source pnlcscript.sh
 cd ..
 echo "DONE"
 # ----------- Timed Light Curves PN ------
@@ -79,8 +79,8 @@ cd ..
 echo "DONE"
 # ------------ Light Curves MOS1 -----------
 echo "Starting MOS1 light curve extraction (full time)"
-cd lc_timed
-source mos1lcscript_timed.sh
+cd lc
+source mos1lcscript.sh
 cd ..
 echo "DONE"
 # ----------- Timed Light Curves MOS1 ------
@@ -117,8 +117,8 @@ cd ..
 echo "DONE"
 # ------------ Light Curves MOS2 -----------
 echo "Starting MOS2 light curve extraction (full time)"
-cd lc_timed
-source mos2lcscript_timed.sh
+cd lc
+source mos2lcscript.sh
 cd ..
 echo "DONE"
 # ----------- Timed Light Curves MOS2 ------
