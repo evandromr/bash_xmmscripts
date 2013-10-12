@@ -4,7 +4,7 @@
 #
 
 # the XMM observation ID
-export ppsfolder=$HOME/Work/XMM/OBS/hd161103/2012sep08/pps
+export ppsfolder=$HOME/Work/XMM/OBS/<target>/<obs>/pps
 echo "--- Pipeline to data reduction of the XMM-NEWTON space telescope ---"
 echo "----------------- intended to point sources only -------------------"
 
