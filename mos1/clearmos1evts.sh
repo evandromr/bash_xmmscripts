@@ -18,7 +18,7 @@ evselect --table=$ImagingEvts:EVENTS \
 dsplot --table=MOS1_rate.ds:RATE --withx=yes --x=TIME --withy=yes --y=RATE \
     --plotter='xmgrace -hardcopy -printfile 'MOS1_rate.ps''
 
-# Creates a GTI (good time interval) when RATE < 0.4
+# Creates a GTI (good time interval) when RATE < 0.35
 tabgtigen --table=MOS1_rate.ds --gtiset=MOS1_gti.ds --expression='RATE<=0.35'
 
 # Creates a clean Events File with the events on the GTI
@@ -42,10 +42,10 @@ dsplot --table=MOS1_rate_clean.ds:RATE \
 evselect --table=$ImagingEvts --withimageset=true --imageset=MOS1_image.ds \
     --xcolumn=X --ycolumn=Y --ximagebinsize=80 --yimagebinsize=80 \
     --imagebinning=binSize \
-    --expression='#XMMEA_EM && (PI>150 && PI<10000) && PATTERN<=4 && FLAG==0'
+    --expression='#XMMEA_EM && (PI>150 && PI<10000) && PATTERN<=12 && FLAG==0'
 
 evselect --table=MOS1_clean.ds \
     --withimageset=true --imageset=MOS1_image_clean.ds \
     --xcolumn=X --ycolumn=Y --ximagebinsize=80 --yimagebinsize=80 \
     --imagebinning=binSize \
-    --expression='#XMMEA_EM && (PI>150 && PI<10000) && PATTERN<=4 && FLAG==0'
+    --expression='#XMMEA_EM && (PI>150 && PI<10000) && PATTERN<=12 && FLAG==0'
