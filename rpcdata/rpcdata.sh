@@ -7,7 +7,7 @@
 export xmm_rpcdata=$PWD
 
 #Point to Raw Observation Data directory
-export SAS_ODF=$HOME/Work/XMM/OBS/$obsfolder/odf/
+export SAS_ODF=$odffolder
 
 export SAS_IMAGEVIEWER=ds9
 export SAS_MEMORY_MODEL=high
