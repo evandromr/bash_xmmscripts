@@ -14,13 +14,15 @@ echo "----------------- intended to point sources only -------------------"
 #===========================================================================
 echo "Reprocessing data"
 cd rpcdata/
+
 source rpcdata.sh > rpcdata.log
+cd ../
 echo "End of data reduction"
 
 echo "Starting the generation of scientific products"
 #=========================================================
 #--------------- Camera PN ---------------
-cd ../pn
+cd pn
 
 echo "Cleaning PN events..."
 source clearpnevts.sh > clear.log

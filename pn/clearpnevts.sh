@@ -4,11 +4,8 @@
 # For the PN camera
 #
 
-# Select the events file for the PN camera
-export ImagingEvts=`ls -1 $xmm_rpcdata/*PN*ImagingEvts.ds*`
-
 # Extract lightcurve for energy 10keV < E < 12keV and pattern='single'
-evselect --table=$ImagingEvts:EVENTS \
+evselect --table=$PNevents:EVENTS \
     --withrateset=yes --rateset=PN_rate.ds \
     --maketimecolumn=yes --makeratecolumn=yes \
     --timebinsize=100 --timecolumn='TIME' \
@@ -22,7 +19,7 @@ dsplot --table=PN_rate.ds:RATE --withx=yes --x=TIME --withy=yes --y=RATE \
 tabgtigen --table=PN_rate.ds --gtiset=PN_gti.ds --expression='RATE<=0.4'
 
 # Creates a clean Events File with the events on the GTI
-evselect --table=$ImagingEvts:EVENTS \
+evselect --table=$PNevents:EVENTS \
     --withfilteredset=yes --filteredset=PN_clean.ds --keepfilteroutput=yes \
     --expression='#XMMEA_EP && gti(PN_gti.ds, TIME) && (PI > 150)'
 
@@ -38,7 +35,7 @@ dsplot --table=PN_rate_clean.ds:RATE --withx=yes --x=TIME --withy=yes --y=RATE \
     --plotter='xmgrace -hardcopy -printfile 'PN_rate_clean.ps''
 
 # Creates before/after images for doubled-check visual analysis
-evselect --table=$ImagingEvts --withimageset=true --imageset=PN_image.ds \
+evselect --table=$PNevents --withimageset=true --imageset=PN_image.ds \
     --xcolumn=X --ycolumn=Y --ximagebinsize=80 --yimagebinsize=80 \
     --imagebinning=binSize \
     --expression='#XMMEA_EP && (PI>300 && PI<12000) && PATTERN<=4 && FLAG==0'

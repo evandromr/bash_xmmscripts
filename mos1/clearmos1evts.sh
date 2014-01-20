@@ -4,11 +4,8 @@
 # For the MOS1 camera
 #
 
-# Select the events file for the MOS1 camera
-export ImagingEvts=`ls -1 $xmm_rpcdata/*MOS1*ImagingEvts.ds*`
-
 # Extract lightcurve for energy 10keV < E < 12keV and pattern='single'
-evselect --table=$ImagingEvts:EVENTS \
+evselect --table=$MOS1events:EVENTS \
     --withrateset=yes --rateset=MOS1_rate.ds \
     --maketimecolumn=yes --makeratecolumn=yes \
     --timebinsize=100 --timecolumn='TIME' \
@@ -22,7 +19,7 @@ dsplot --table=MOS1_rate.ds:RATE --withx=yes --x=TIME --withy=yes --y=RATE \
 tabgtigen --table=MOS1_rate.ds --gtiset=MOS1_gti.ds --expression='RATE<=0.35'
 
 # Creates a clean Events File with the events on the GTI
-evselect --table=$ImagingEvts:EVENTS \
+evselect --table=$MOS1events:EVENTS \
     --withfilteredset=yes --filteredset=MOS1_clean.ds --keepfilteroutput=yes \
     --expression='#XMMEA_EM && gti(MOS1_gti.ds, TIME) && (PI > 150)'
 
@@ -39,7 +36,7 @@ dsplot --table=MOS1_rate_clean.ds:RATE \
     --plotter='xmgrace -hardcopy -printfile 'MOS1_rate_clean.ps''
 
 # Cratres before/after images for doubled-check visual analysis
-evselect --table=$ImagingEvts --withimageset=true --imageset=MOS1_image.ds \
+evselect --table=$MOS1events --withimageset=true --imageset=MOS1_image.ds \
     --xcolumn=X --ycolumn=Y --ximagebinsize=80 --yimagebinsize=80 \
     --imagebinning=binSize \
     --expression='#XMMEA_EM && (PI>150 && PI<10000) && PATTERN<=12 && FLAG==0'

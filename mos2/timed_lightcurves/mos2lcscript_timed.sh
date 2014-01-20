@@ -4,11 +4,6 @@
 #
 # It requires the src.reg and bkg.reg files obtained via SAO-ds9 software
 
-# --- ATENTION ---
-# dont forget to set the times below
-export tstart=000000000.0
-export tstop=000000000.0
-
 cp $PWD/../MOS2_clean.ds ./mos2evts_barycen.ds
 cp $PWD/../src.reg ./
 cp $PWD/../bkg.reg ./

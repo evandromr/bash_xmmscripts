@@ -4,11 +4,6 @@
 #
 # It requires the src.reg and bkg.reg files obtained via SAO-ds9 software
 
-# --- ATENTION ----
-# dont forget to set the times below
-export tstart=000000000.0
-export tstop=000000000.0
-
 # Make barycentric correction on the clean event file
 cp $PWD/../PN_clean.ds ./pnevts_barycen.ds
 cp $PWD/../src.reg ./
