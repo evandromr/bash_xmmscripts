@@ -4,9 +4,9 @@
 #
 
 # the XMM observation details (part of folder path)
-export obsdetail=hd161103/2012sep08
-export ppsfolder=$HOME/XMM/OBS/$obsdetail/pps
-export odffolder=$HOME/XMM/OBS/$obsdetail/odf
+export obsdetail=hdxxxxxx/yyyymmmdd
+export ppsfolder=$HOME/xmm/obs/$obsdetail/pps
+export odffolder=$HOME/xmm/obs/$obsdetail/odf
 
 #==========================================================================
 echo "--- Pipeline to data reduction of the XMM-NEWTON space telescope ---"
