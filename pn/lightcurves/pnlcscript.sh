@@ -3,8 +3,7 @@
 # Script to extract a barycentric corrected light curve for the PN camera
 #
 # It requires the src.reg and bkg.reg files obtained via SAO-ds9 software
-
-cp $PWD/../PN_clean.ds ./pnevts_barycen.ds
+cp `ls -1 $xmm_rpcdata/*PN*ImagingEvts.ds` ./pnevts_barycen.ds
 cp $PWD/../src.reg ./
 cp $PWD/../bkg.reg ./
 

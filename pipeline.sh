@@ -52,7 +52,7 @@ echo "Starting the generation of scientific products"
 echo "Cleaning PN events..."
 cd pn
 
-source clearpnevts.sh > clear.log
+source clearpnevts.sh > pnclear.log
 
 echo "DONE"
 
@@ -69,7 +69,7 @@ ds9 PN_image_clean.ds -regions load regions.reg -cmap Heat -log -smooth yes \
 echo "Starting PN spectrum extraction..."
 cd spec
 
-source pnspec.sh > spec.log
+source pnspec.sh > pnspec.log
 
 cd ..
 echo "DONE"
@@ -78,7 +78,7 @@ echo "DONE"
 echo "Starting PN event files extraction..."
 cd events
 
-source pneventscript.sh
+source pneventscript.sh > pnevents.log
 cd ..
 echo "DONE"
 
@@ -86,7 +86,7 @@ echo "DONE"
 echo "Starting PN light curve extraction (full time)"
 cd lightcurves
 
-source pnlcscript.sh
+source pnlcscript.sh > pnlc.log
 
 cd ..
 echo "DONE"
@@ -95,7 +95,7 @@ echo "DONE"
 echo "Starting PN light curve extraction (timed)"
 cd timed_lightcurves
 
-source pnlcscript_timed.sh
+source pnlcscript_timed.sh > pnlct.log
 
 cd ..
 echo "DONE"
@@ -109,7 +109,7 @@ cp ../pn/src_evt.reg ./
 cp ../pn/regions.reg ./
 echo "Cleaning MOS1 event files..."
 
-source clearmos1evts.sh > clear.log
+source clearmos1evts.sh > mos1clear.log
 
 echo "DONE"
 
@@ -121,7 +121,7 @@ ds9 MOS1_image_clean.ds -regions load regions.reg -cmap Heat -log -smooth yes \
 cd spec
 echo "Extracting MOS1 spectrum..."
 
-source mos1spec.sh > spec.log
+source mos1spec.sh > mos1spec.log
 
 cd ..
 echo "DONE"
@@ -130,7 +130,7 @@ echo "DONE"
 echo "Starting MOS1 event files extraction..."
 cd events
 
-source mos1eventscript.sh
+source mos1eventscript.sh > mos1events.log
 
 cd ..
 echo "DONE"
@@ -139,7 +139,7 @@ echo "DONE"
 echo "Starting MOS1 light curve extraction (full time)"
 cd lightcurves
 
-source mos1lcscript.sh
+source mos1lcscript.sh > mos1lc.log
 
 cd ..
 echo "DONE"
@@ -148,7 +148,7 @@ echo "DONE"
 echo "Starting MOS1 light curve extraction (timed)"
 cd timed_lightcurves
 
-source mos1lcscript_timed.sh
+source mos1lcscript_timed.sh > mos1lct.log
 
 cd ..
 echo "DONE"
@@ -162,7 +162,7 @@ cp ../mos1/bkg.reg ./
 cp ../mos1/regions.reg ./
 echo "Cleaning MOS2 events file"
 
-source clearmos2evts.sh > clear.log
+source clearmos2evts.sh > mos2clear.log
 
 echo "DONE"
 
@@ -174,7 +174,7 @@ ds9 MOS2_image_clean.ds -regions load regions.reg -cmap Heat -log -smooth yes \
 cd spec
 echo "Extracting MOS2 spectrum..."
 
-source mos2spec.sh > spec.log
+source mos2spec.sh > mos2spec.log
 
 cd ..
 echo "DONE"
@@ -183,7 +183,7 @@ echo "DONE"
 echo "Starting MOS2 event files extraction..."
 cd events
 
-source mos2eventscript.sh
+source mos2eventscript.sh > mos2events.log
 
 cd ..
 echo "DONE"
@@ -192,7 +192,7 @@ echo "DONE"
 echo "Starting MOS2 light curve extraction (full time)"
 cd lightcurves
 
-source mos2lcscript.sh
+source mos2lcscript.sh > mos2lc.log
 
 cd ..
 echo "DONE"
@@ -201,7 +201,7 @@ echo "DONE"
 echo "Starting MOS2 light curve extraction (timed)"
 cd timed_lightcurves
 
-source mos2lcscript_timed.sh
+source mos2lcscript_timed.sh > mos2lct.log
 
 cd ..
 echo "DONE"

@@ -5,7 +5,7 @@
 # It requires the src.reg and bkg.reg files obtained via SAO-ds9 software
 
 # Make barycentric correction on the clean event file
-cp $PWD/../PN_clean.ds ./pnevts_barycen.ds
+cp `ls -1 $xmm_rpcdata/*PN*ImagingEvts.ds` ./pnevts_barycen.ds
 cp $PWD/../src.reg ./
 cp $PWD/../bkg.reg ./
 

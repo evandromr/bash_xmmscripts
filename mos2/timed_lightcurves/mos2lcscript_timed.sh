@@ -3,8 +3,7 @@
 # Script to extract a barycentric corrected light curve for the MOS2 camera
 #
 # It requires the src.reg and bkg.reg files obtained via SAO-ds9 software
-
-cp $PWD/../MOS2_clean.ds ./mos2evts_barycen.ds
+cp `ls -1 $xmm_rpcdata/*MOS2*ImagingEvts.ds` ./mos2evts_barycen.ds
 cp $PWD/../src.reg ./
 cp $PWD/../bkg.reg ./
 
