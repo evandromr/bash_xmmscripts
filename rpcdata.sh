@@ -3,11 +3,12 @@
 # Script to reprocess observation data files
 #
 
-# Set a new environment variable point to this folder
-export xmm_rpcdata=$PWD
-
 #Point to Raw Observation Data directory
-export SAS_ODF=$odffolder
+export SAS_ODF=/home/evandro/xmm/obs/hd000000/2000jan01/odf
+
+# Optional: copy the regions.reg file from the pps folder
+# export ppsfolder=/home/evandro/xmm/obs/hd000000/2000jan01/pps
+# cp $ppsfolder/*REGION* ./regions.reg 
 
 export SAS_IMAGEVIEWER=ds9
 export SAS_MEMORY_MODEL=high

@@ -6,6 +6,7 @@
 # It requires the src.reg and bkg.reg files obtained via SAO-ds9 software
 #
 
+export pntable=../PN_clean.ds
 cp ../src.reg ./
 cp ../bkg.reg ./
 
@@ -27,7 +28,6 @@ export pnbkgspc="PN_bkgspc.ds"
 export pnbkgimg="PN_bkgimg.ds"
 export pnrmf="PN.rmf"
 export pnarf="PN.arf"
-export pntable=../PN_clean.ds
 
 # Extracts a source+background spectrum
 evselect --table=$pntable:EVENTS \

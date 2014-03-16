@@ -6,6 +6,7 @@
 # It requires the src.reg and bkg.reg files obtained via SAO-ds9 software
 #
 
+export mos2table=../MOS2_clean.ds
 cp ../src.reg ./
 cp ../bkg.reg ./
 
@@ -27,7 +28,6 @@ export mos2bkgspc="MOS2_bkgspc.ds"
 export mos2bkgimg="MOS2_bkgimg.ds"
 export mos2rmf="MOS2.rmf"
 export mos2arf="MOS2.arf"
-export mos2table=../MOS2_clean.ds
 
 # Extracts a source+background spectrum
 evselect --table=$mos2table:EVENTS \
